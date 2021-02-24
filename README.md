@@ -1,7 +1,7 @@
 # ISS
 
 #### Problema 5:
-URMARIRE BUG-URI\
+##### URMARIRE BUG-URI
 O firma producatoare de software pune la dispozitia programatorilor si verificatorilor sai un sistem
 prin care acestia pot sa comunice electronic. Astfel, fiecare dintre angajatii mentionati are la dispoziție
 un terminal prin care:\
