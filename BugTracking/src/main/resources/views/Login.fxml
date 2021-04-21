@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="280.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.LoginController">
    <children>
       <VBox alignment="CENTER" layoutX="6.0" layoutY="6.0" prefHeight="219.0" prefWidth="510.0" spacing="30.0" AnchorPane.bottomAnchor="7.800000000000011" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="8.399999999999977" AnchorPane.topAnchor="6.0">
@@ -26,7 +25,7 @@
                         <Font name="Britannic Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField />
+                  <TextField fx:id="usernameField" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="194.0" spacing="25.0">
@@ -36,10 +35,10 @@
                         <Font name="Britannic Bold" size="14.0" />
                      </font>
                   </Label>
-                  <PasswordField prefWidth="149.0" />
+                  <PasswordField fx:id="passwordField" prefWidth="149.0" />
                </children>
             </HBox>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="61.0" text="Log In">
+            <Button mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="61.0" text="Log In">
                <font>
                   <Font name="Britannic Bold" size="14.0" />
                </font>
