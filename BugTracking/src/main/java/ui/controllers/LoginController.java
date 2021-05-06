@@ -1,11 +1,15 @@
-package ui;
+package ui.controllers;
 
-import Domain.User;
-import Service.IService;
+import domain.Programmer;
+import domain.Tester;
+import domain.User;
+import service.IService;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import ui.stages.ProgrammerStage;
+import ui.stages.TesterStage;
 
 public class LoginController extends AbstractController{
     @FXML
@@ -17,6 +21,7 @@ public class LoginController extends AbstractController{
     public void initialise(IService service, Stage stage){
         this.service = service;
         this.stage = stage;
+        this.stage.setOnCloseRequest((e)->service.shutdown());
     }
 
     public void login() {
@@ -25,20 +30,22 @@ public class LoginController extends AbstractController{
             String password = passwordField.getText();
             User user = service.login(username,password);
             showWindow(user);
+            this.stage.setOnCloseRequest(null);
             this.stage.close();
         }catch (Exception e){
             showError(e);
         }
-
     }
 
     private void showWindow(User user) {
-        boolean smth=false;
-        if(smth){
-
+        Stage stage;
+        if(user instanceof Programmer){
+            stage = new ProgrammerStage(service, (Programmer) user);
         }
         else{
-
+            stage = new TesterStage(service, (Tester) user);
         }
+        stage.show();
+        this.stage.close();
     }
 }

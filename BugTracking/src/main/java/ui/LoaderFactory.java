@@ -16,21 +16,21 @@ public class LoaderFactory {
         };
     }
 
-    private FXMLLoader programmerMainSceneLoader() {
+    private FXMLLoader getLoader(String path){
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/views/ProgrammerMainScreen.fxml"));
+        loader.setLocation(getClass().getResource(path));
         return loader;
+    }
+
+    private FXMLLoader programmerMainSceneLoader() {
+        return getLoader("/views/ProgrammerMainScreen.fxml");
     }
 
     private FXMLLoader testerMainSceneLoader() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/views/TesterMainScreen.fxml"));
-        return loader;
+        return getLoader("/views/TesterMainScreen.fxml");
     }
 
     private FXMLLoader loginLoader() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/views/TesterMainScreen.fxml"));
-        return loader;
+        return getLoader("/views/Login.fxml");
     }
 }
