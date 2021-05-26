@@ -32,7 +32,7 @@ public abstract class HbmRepo<ID, E extends Entity<ID>> implements IRepository<I
     protected abstract List<E> getAllQuery(Session session);
 
     @Override
-    public void save(E entity) {
+    public E save(E entity) {
         logger.traceEntry("{}",entity);
         validator.validate(entity);
         try(Session session = sessionFactory.openSession()) {
@@ -41,12 +41,15 @@ public abstract class HbmRepo<ID, E extends Entity<ID>> implements IRepository<I
                 tx = session.beginTransaction();
                 session.save(entity);
                 tx.commit();
+                logger.traceExit();
+                return entity;
             } catch (RuntimeException ex) {
                 if (tx != null)
                     tx.rollback();
+                logger.error(ex.getMessage());
             }
         }
-        logger.traceExit();
+        throw new RuntimeException("An error encountered!");
     }
     @Override
     public void delete(ID id) {

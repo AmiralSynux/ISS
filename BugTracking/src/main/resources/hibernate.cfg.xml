@@ -12,16 +12,9 @@
 
         <property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Echo all executed SQL to stdout -->
-<!--        <property name="show_sql">true</property>-->
-<!--        <property name="format_sql">true</property>-->
-
-
         <mapping resource="hbm/Programmer.hbm.xml"/>
         <mapping resource="hbm/Tester.hbm.xml"/>
         <mapping resource="hbm/Bug.hbm.xml"/>
 
-<!--        <mapping resource="event/hbm/Event.hbm.xml"/>-->
-<!--        <mapping class="event.annotations.EventAnnot"/>-->
     </session-factory>
 </hibernate-configuration>

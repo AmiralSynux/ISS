@@ -29,12 +29,12 @@
                               <TableColumn fx:id="stateColumn" minWidth="0.0" prefWidth="102.4000244140625" text="State" />
                           </columns>
                         </TableView>
-                        <Button layoutX="736.0" layoutY="419.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" text="Solved" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="16.199999999999932">
+                        <Button layoutX="736.0" layoutY="419.0" mnemonicParsing="false" onAction="#solveBug" prefHeight="35.0" prefWidth="86.0" text="Solved" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="16.199999999999932">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button layoutX="632.0" layoutY="413.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" text="Unsolved" AnchorPane.bottomAnchor="14.999999999999986" AnchorPane.rightAnchor="119.99999999999997">
+                        <Button layoutX="632.0" layoutY="413.0" mnemonicParsing="false" onAction="#unsolveBug" prefHeight="35.0" prefWidth="86.0" text="Unsolved" AnchorPane.bottomAnchor="14.999999999999986" AnchorPane.rightAnchor="119.99999999999997">
                            <font>
                               <Font size="14.0" />
                            </font>

@@ -4,11 +4,23 @@
 
 <hibernate-mapping>
     <class name="domain.Bug" table="Bug_hbm" discriminator-value="bug">
-        <id name="id" type="long">
+        <id name="id" type="long" column="bug_id">
             <generator class="increment"/>
         </id>
         <property name="name"/>
         <property name="description"/>
         <property name="status"/>
+
+        <set name="programmers" table="bug_programmers"
+             inverse="false" lazy="false" fetch="select" cascade="all" >
+            <key>
+                <column name="bug_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="domain.Programmer">
+                <column name="programmer_id" not-null="true" />
+            </many-to-many>
+        </set>
+
+
     </class>
 </hibernate-mapping>

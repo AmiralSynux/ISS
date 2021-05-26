@@ -10,4 +10,5 @@ public class Entity <ID>{
     public void setId(ID id) {
         this.id = id;
     }
+
 }
